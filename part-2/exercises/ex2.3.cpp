@@ -16,8 +16,12 @@ int main() {
     // build the message that we intend to write
     string greeting = "Hello, " + name + "!";
 
+    // ask the amount of padding
+    cout << "Please enter the amount of spacing to leave between the frame and the greeting: ";
+
     // the number of blanks surrounding the greeting
-    const int padding = 1;
+    int padding;
+    cin >> padding;
 
     // the number of rows and columns to write
     int rows = padding * 2 + 3;

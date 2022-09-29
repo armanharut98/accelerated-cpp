@@ -16,12 +16,15 @@ int main() {
     // build the message that we intend to write
     string greeting = "Hello, " + name + "!";
 
-    // the number of blanks surrounding the greeting
-    const int padding = 1;
+    // the number of blanks to separate the sides from the greeting
+    const int horizontal_padding = 3;
+
+    // the number of blanks to separate the top and bottom borders from the greeting
+    const int vertical_padding = 1;
 
     // the number of rows and columns to write
-    int rows = padding * 2 + 3;
-    const string::size_type columns = greeting.size() + padding * 2 + 2;
+    int rows = vertical_padding * 2 + 3;
+    const string::size_type columns = greeting.size() + horizontal_padding * 2 + 2;
 
     // write a blank line to separate the output from the input
     cout << endl;
@@ -34,7 +37,7 @@ int main() {
         // invariant: we have written "c" characters so far in the current row
         while (c != columns) {
             // is it time to write the greeting?
-            if (r == padding + 1 && c == padding + 1) {
+            if (r == vertical_padding + 1 && c == horizontal_padding + 1) {
                 cout << greeting;
                 c += greeting.size();
             } else {
