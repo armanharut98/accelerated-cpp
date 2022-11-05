@@ -19,6 +19,10 @@ int main() {
     // the number of blanks surrounding the greeting
     const int padding = 1;
 
+    // build the blank lines surrounding the greeting
+    string::size_type spaces_length = greeting.size() + padding * 2;
+    string spaces(spaces_length, ' ');
+
     // the number of rows and columns to write
     int rows = padding * 2 + 3;
     const string::size_type columns = greeting.size() + padding * 2 + 2;
@@ -33,18 +37,19 @@ int main() {
 
         // invariant: we have written "c" characters so far in the current row
         while (c != columns) {
-            // is it time to write the greeting?
-            if (r == padding + 1 && c == padding + 1) {
-                cout << greeting;
-                c += greeting.size();
-            } else {
-                // are we on the border?
-                if (r == 0 || r == rows - 1 || c == 0 || c == columns - 1) {
+            // are we on the border
+            if (r == 0 || r == rows - 1 || c == 0 || c == columns - 1) {
                     cout << "*";
+                    ++c;
+            } else {
+                // is it time to write the greeting?
+                if (r == padding + 1 && c == 1) {
+                    cout << string(padding, ' ') << greeting << string(padding, ' ');
+                    c += greeting.size() + padding * 2;
                 } else {
-                    cout << " ";
+                    cout << spaces;
+                    c += spaces_length;
                 }
-                ++c;
             }
         }
         cout << endl;
