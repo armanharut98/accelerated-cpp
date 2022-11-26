@@ -39,10 +39,15 @@ int main()
         sum += x;
     }
 
+    double homeword_grade = sum / count;
+    if (homeword_grade != homeword_grade) {
+        homeword_grade = 0;
+    }
+
     // write the result
     streamsize prec = cout.precision();
     cout << "Your final grade is " << setprecision(3)
-        << 0.2 * midterm + 0.4 * final + 0.4 * sum / count
+        << 0.2 * midterm + 0.4 * final + 0.4 * homeword_grade
         << setprecision(prec) << endl;
     return 0;
 }
