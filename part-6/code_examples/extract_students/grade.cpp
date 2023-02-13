@@ -2,7 +2,6 @@
 #include <vector>
 #include "grade.h"
 #include "median.h"
-#include "average.h"
 #include "Student_info.h"
 
 using std::domain_error; using std::vector;
@@ -25,20 +24,8 @@ double grade(const Student_info& s) {
     return grade(s.midterm, s.final, s.homework);
 }
 
-double grade_aux(const Student_info& s) {
-    try {
-        return grade(s);
-    } catch (domain_error) {
-        return grade(s.midterm, s.final, 0);
-    }
-}
-
-double average_grade(const Student_info& s) {
-    return grade(s.midterm, s.final, average(s.homework));
-}
-
 bool fgrade(const Student_info& s) {
-    return grade(s) < 6;
+    return grade(s) < 60;
 }
 
 bool pgrade(const Student_info& s) {

@@ -17,6 +17,5 @@ bool compare(const Student_info&, const Student_info&);
 std::istream& read_hw(std::istream&, std::vector<double>&);
 std::istream& read(std::istream&, Student_info&);
 Student_group extract_fails(Student_group&);
-bool did_all_hw(const Student_info&);
 
 #endif

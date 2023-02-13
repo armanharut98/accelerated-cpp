@@ -5,13 +5,12 @@
 #include "Student_info.h"
 #include "grade.h"
 
-using std::list;    
+using std::list;
+using std::vector;
 using std::istream;
-using std::vector;  
-using std::find;
-using std::remove_if;
-using std::remove_copy_if;
 using std::back_inserter;
+using std::remove_copy_if;
+using std::remove_if;
 using std::stable_partition;
 
 bool compare(const Student_info& x, const Student_info& y) {
@@ -45,22 +44,15 @@ istream& read(istream& is, Student_info& s) {
     return is;
 }
 
-bool did_all_hw(const Student_info& s) {
-    return ((find(s.homework.begin(), s.homework.end(), 0)) == s.homework.end());
+// single-pass solution
+Student_group extract_fails(Student_group& students) {
+    Student_group::iterator iter = stable_partition(students.begin(), students.end(), pgrade);
+    Student_group fails(iter, students.end());
+    students.erase(iter, students.end());
+    return fails;
 }
 
 /*
-// one-pass solution
-Student_group extract_fails(Student_group& students) {
-    Student_group::iterator iter = stable_partition(students.begin(), students.end(), pgrade);
-
-    Student_group fails(iter, students.end());
-    students.erase(iter, students.end());
-
-    return fails;
-}
-*/
-
 // two-pass solution
 Student_group extract_fails(Student_group& students) {
     Student_group fails;
@@ -69,22 +61,5 @@ Student_group extract_fails(Student_group& students) {
     students.erase(remove_if(students.begin(), students.end(), fgrade), students.end());
 
     return fails;
-}
-
-/* version uses the list data structure
-list<Student_info> extract_fails(list<Student_info>& students) {
-    list<Student_info> fail;
-
-    list<Student_info>::iterator iter = students.begin();
-    while (iter != students.end()) {
-        if (fgrade(*iter)) {
-            fail.push_back(*iter);
-            iter = students.erase(iter);
-        } else {
-            ++iter;
-        }
-    }
-
-    return fail;
 }
 */

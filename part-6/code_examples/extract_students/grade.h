@@ -7,8 +7,6 @@
 double grade(double midterm, double final, double homework);
 double grade(double midterm, double final, const std::vector<double>& hw);
 double grade(const Student_info& s);
-double grade_aux(const Student_info& s);
-double average_grade(const Student_info& s);
 bool fgrade(const Student_info& s);
 bool pgrade(const Student_info& s);
 
