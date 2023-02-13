@@ -13,10 +13,14 @@ using std::getline;
 using std::sort;
 
 int main() {
-    string line;
-    getline(cin, line);
+    vector<string> input;
+    string s;
 
-    vector<string> rotations = rotate(line);
+    while(getline(cin, s)) {
+        input.push_back(s);
+    };
+
+    vector<string> rotations = rotate(s);
     sort(rotations.begin(), rotations.end(), compare);
 
     for (int i = 0; i < rotations.size(); ++i) {

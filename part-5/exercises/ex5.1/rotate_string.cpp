@@ -2,26 +2,41 @@
 #include <vector>
 #include <cctype>
 #include <iomanip>
+#include <algorithm>
+#include "rotate_string.h"
 
 using std::string;
 using std::vector;
 using std::tolower;
 using std::streamsize;
+using std::max;
 
 bool compare(const string& a, const string& b) {
     return tolower(a[0]) < tolower(b[0]);
 }
 
-streamsize getWidth(const string& s) {
+string_sz getMaxLength(const vector<string>& v) {
+    string_sz maxlen = 0;
+
+    vector<string>::const_iterator iter = v.begin();
+    while (iter != v.end()) {
+        maxlen = max(maxlen, iter->size());
+        iter++;
+    }
+
+    return maxlen;
+}
+
+streamsize getWidth(const string& s, string) {
     streamsize width;
+
+
 }
 
 vector<string> split(const string& s) {
     vector<string> ret;
 
-    typedef string::size_type string_size;
-
-    string_size i = 0;
+    string_sz i = 0;
     while (i != s.size()) {
         string x;
 
@@ -29,7 +44,7 @@ vector<string> split(const string& s) {
             ++i;
         }
 
-        string_size j = i;
+        string_sz j = i;
         while (j != s.size() && !isspace(s[j])) {
             ++j;
         }

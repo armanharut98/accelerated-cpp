@@ -1,4 +1,4 @@
- student number |  vector  |    list    |
-  10 students   | 0.000009 |   0.00001  |
- 1000 students  | 0.003301 |  0.000276  |
-100000 students |  33.1091 |  0.029123  |
+ student number |  vector  |    list    | insert/resize
+  10 students   | 0.000009 |   0.00001  |   0.000056
+ 1000 students  | 0.003301 |  0.000276  |   0.218466
+100000 students |  33.1091 |  0.029123  |    1995.53

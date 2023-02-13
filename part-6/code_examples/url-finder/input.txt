@@ -1,0 +1,11 @@
+Example Document
+
+This is a sample document with URL links. Here are some links to websites you may find interesting:
+
+Wikipedia: https://en.wikipedia.org/wiki/Main_Page
+YouTube: https://www.youtube.com/
+Reddit: https://www.reddit.com/
+OpenAI: https://openai.com/
+Amazon: https://www.amazon.com/
+These links will take you to some popular websites where you can learn, discover, and have fun. I hope you find this document helpful. Thank you for reading!
+

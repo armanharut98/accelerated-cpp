@@ -1,0 +1,9 @@
+#ifndef GUARD_palindrome_h
+#define GUARD_palindrome_h
+
+#include <algorithm>
+#include <string>
+
+bool is_palindrome(const std::string&);
+
+#endif

@@ -39,18 +39,22 @@ istream& read(istream& is, Student_info& s) {
     return is;
 }
 
-void extract_fails(Student_group& students) {
-    int pass = 0;
-    Student_group::iterator iter = students.begin();
-    while (iter != students.end()) {
-        if (!fgrade(*iter)) {
-            students.insert(students.begin(), *iter);
-            iter = students.erase(iter);
-            ++pass;
-            ++iter;
+Student_group extract_fails(Student_group& students) {
+    Student_group failed;
+    Student_group::size_type passCount = 0;
+
+    Student_group::size_type i = 0;
+    while (i != students.size()) {
+        if (fgrade(students[i])) {
+            failed.push_back(students[i]);
         } else {
-            ++iter;
+            students.insert(students.begin(), students[i++]);
+            ++passCount;
         }
+        ++i;
     }
-    students.resize(pass);
+
+    students.resize(passCount);
+
+    return failed;
 }

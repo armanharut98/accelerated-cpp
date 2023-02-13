@@ -17,6 +17,6 @@ typedef std::vector<Student_info> Student_group;
 bool compare(const Student_info&, const Student_info&);
 std::istream& read_hw(std::istream&, std::vector<double>&);
 std::istream& read(std::istream&, Student_info&);
-void extract_fails(Student_group&);
+Student_group extract_fails(Student_group&);
 
 #endif

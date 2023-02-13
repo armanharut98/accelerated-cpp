@@ -25,12 +25,6 @@ int main() {
 
     extract_fails(students);
 
-    for (int i = 0; i < students.size(); ++i) {
-        cout << students[i].name << endl;
-    }
-
-    cout << students.size() << endl;
-
     duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
 
     cout << duration << endl;

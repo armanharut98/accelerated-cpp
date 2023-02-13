@@ -40,23 +40,23 @@ vector<string> hcat(const vector<string>& left, const vector<string>& right) {
     // continue until we've seen all rows from both pictures
     while (i != left.size() || j != right.size()) {
         // construct new string to hold characters from both pictures
-        string x;
+        string s;
 
         // copy a row from the left-hand side, if there is one 
         if (i != left.size()) {
-            x = left[i];
+            s = left[i++];
         }
 
         // pad to full width
-        x += string(width1 - left[i].size(), ' ');
+        s += string(width1 - s.size(), ' ');
 
         // copy a row from the right-hand side, if there is one
         if (j != right.size()) {
-            x += right[j];
+            s += right[j++];
         }
 
         // add s to the picture we're creating 
-        ret.push_back(x);
+        ret.push_back(s);
     }
 
     return ret;
