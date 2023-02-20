@@ -2,13 +2,16 @@
 #include <string>
 #include <istream>
 #include <stdexcept>
+#include <cstdlib>
 #include "split_string.h"
 #include "generate_sentence.h"
 
 using std::vector;
 using std::string;
 using std::istream;
+using std::rand;
 using std::logic_error;
+using std::domain_error;
 
 // read a grammar from a given input stream 
 Grammar read_grammar(istream& in)
@@ -38,7 +41,22 @@ bool bracketed(const string& s)
     return s.size() > 1 && s[0] == '<' && s[s.size() - 1] == '>';
 }
 
+// return a random integer in the range [0, n)
+int n_rand(int n)
+{
+    if (n <= 0 || n > RAND_MAX)
+    {
+        throw domain_error("Argument to nrand is out of range");
+    }
 
+    int bucket_size = RAND_MAX / n;
+    int r;
+
+    do r = rand() / RAND_MAX;
+    while (r >= n);
+
+    return n;
+}
 
 void gen_aux(const Grammar& g, const string& word, vector<string>& ret)
 {
