@@ -4,6 +4,7 @@
 #include <ctime>
 #include "Student_info.h"
 #include "analysis.h"
+#include "grade.h"
 
 using std::list;
 using std::vector;
@@ -35,10 +36,10 @@ int main() {
     }
 
     // do the analyses
-    write_analysis(cout, "median", median_analysis, did, didnt);
-    write_analysis(cout, "average", average_analysis, did, didnt);
+    write_analysis(cout, "median", grade_aux, did, didnt);
+    write_analysis(cout, "average", average_grade, did, didnt);
     write_analysis(cout, "median of homework turned in", 
-        optimistic_median_analysis, did, didnt);
+        optimistic_median_grade, did, didnt);
 
     return 0;
 }

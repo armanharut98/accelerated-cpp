@@ -49,8 +49,8 @@ bool did_all_hw(const Student_info& s) {
     return (find(s.homework.begin(), s.homework.end(), 0) == s.homework.end());
 }
 
-bool hw_grades_decreases(const Student_info& s) {
-    return 
+bool midterm_higher_than_final(const Student_info& s) {
+    return s.midterm > s.final;
 }
 
 // single-pass solution

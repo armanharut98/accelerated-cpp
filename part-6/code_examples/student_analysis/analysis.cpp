@@ -42,8 +42,8 @@ double average_analysis(const Student_group& students) {
 
 void write_analysis(ostream& out, const string& name,
                     double analysis(const Student_group&),
-                    Student_group did,
-                    Student_group didnt)
+                    const Student_group& did,
+                    const Student_group& didnt)
 {
     out << name << ": median(did) = " << analysis(did) 
                 << ", median(didnt) = " << analysis(didnt) << endl;

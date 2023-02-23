@@ -19,7 +19,7 @@ int main() {
         did.push_back(student);
     }
 
-    vector<Student_info> didnt = extract_students(did, did_all_hw);
+    vector<Student_info> didnt = extract_students(did, midterm_higher_than_final);
 
     // check that both groups contain data
     if (did.empty()) {

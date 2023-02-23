@@ -18,5 +18,6 @@ std::istream& read_hw(std::istream&, std::vector<double>&);
 std::istream& read(std::istream&, Student_info&);
 Student_group extract_students(Student_group&, bool criteria(const Student_info&));
 bool did_all_hw(const Student_info&);
+bool midterm_higher_than_final(const Student_info& s);
 
 #endif

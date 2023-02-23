@@ -38,6 +38,4 @@ int main() {
         optimistic_median_analysis, did, didnt);
 
     return 0;
-
-    return 0;
 }
